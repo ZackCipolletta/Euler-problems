@@ -1,31 +1,19 @@
-import Triangle from "./../src/triangle.js";
+import { multiplesOf3and5, fibSequenceBelow4Mil } from "./../src/eulerProblems";
 
-describe('Triangle', () => {
 
-    test("should correctly create a triangle object with three lengths", () => {
-        const triangle = new Triangle(2, 4, 5);
-        expect(triangle.side1).toEqual(2);
-        expect(triangle.side2).toEqual(4);
-        expect(triangle.side3).toEqual(5);
-    });
+// describe('multiplesOf3and5', () => {
 
-    test('should correctly determine whether three lengths are not a triangle', () => {
-        const notTriangle = new Triangle(3, 9, 22);
-        expect(notTriangle.checkType()).toEqual("not a triangle");
-    });
+//     test('should return an array containing 3, 6 and 9', () => {
+//         multiplesOf3and5();
+//         expect(multiplesOf3and5()).toEqual(233168);
+//     });
+//   });
 
-    test('should correctly determine whether three lengths make a scalene triangle', () => {
-        const scalTriangle = new Triangle(4, 5, 7)
-        expect(scalTriangle.checkType()).toEqual("scalene triangle");
-    });
+describe('fibSequenceBelow4Mil', () => {
 
-    test('should correctly determine whether three lengths make an isosceles triangle', () => {
-        const isoscTriangle = new Triangle(5,5,7)
-        expect(isoscTriangle.checkType()).toEqual("isosceles triangle");
-      });
-      test('should correctly determine whether three lengths make an equilateral triangle', () => {
-        const equiTriangle = new Triangle(5,5,5)
-        expect(equiTriangle.checkType()).toEqual("equilateral triangle");
-      });
-    });
+  test('should return and array of Fibonacci numbers 1 to 3', () => {
+    fibSequenceBelow4Mil();
+    expect(fibSequenceBelow4Mil()).toEqual(44);
+  });
 
+});
