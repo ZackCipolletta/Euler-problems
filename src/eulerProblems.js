@@ -36,19 +36,42 @@ export function fibSequenceBelow4Mil() {
 
 export function multiplyAllNumbers() {
   let arrayForMultiply = [];
-  for (let i = 100; i <= 110; i++) {
-    arrayForMultiply.push(i * 100);
+  let x = 100;
+  let killMeArray = [];
+  let palinDromeArray = [];
+  for (let i = 100; i <= 999; i++) {
+    arrayForMultiply.push(i);
+  }
+  for (let i = 100; i <= 999; i++) {
+    let arrayMap = arrayForMultiply.map(element => element * x);
+    x++;
+    killMeArray.push(...arrayMap);
   }
 
-  return arrayForMultiply;
+  killMeArray.forEach(element => {
+    if (palindromicNumbers(element)){
+      palinDromeArray.push(element);
+    }
+  });
+  console.log(palinDromeArray);
+  palinDromeArray.sort( function( a , b){
+    if(a > b) return 1;
+    if(a < b) return -1;
+});
+  let values = Math.max(...palinDromeArray);
+  console.log('values = ' + values);
+  return palinDromeArray[palinDromeArray.length-1];
 }
+
+
+
 
 export function palindromicNumbers(someNum) {
   let numArray = someNum.toString().split('');
   let x = numArray.length;
-  if (x === 5 && numArray[0] === numArray[x-1] && numArray[1] === numArray[x-2]) {
+  if (x === 5 && numArray[0] === numArray[x - 1] && numArray[1] === numArray[x - 2]) {
     return true;
-  } else if (numArray.length === 6 && numArray[0] === numArray[x-1] && numArray[1] === numArray[x-2] && numArray[2] === numArray[x-3]) {
+  } else if (numArray.length === 6 && numArray[0] === numArray[x - 1] && numArray[1] === numArray[x - 2] && numArray[2] === numArray[x - 3]) {
     return true;
   }
 }
